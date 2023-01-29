@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.achong.mapper.RootMapper">
+
+<!--    //根据url查询有无-->
+    <select id="queryUrl" parameterType="string" resultType="url" >
+        select * from url_info where url=#{url};
+    </select>
+
+    <insert id="insertUrl"  parameterType="url">
+        INSERT INTO url_info(url,strData) VALUE (#{url},#{strData});
+    </insert>
+
+    <update id="updateUrl" parameterType="url">
+        update url_info set strData = #{strData} where url = #{url};
+    </update>
+</mapper>
